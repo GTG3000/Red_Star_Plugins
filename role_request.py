@@ -8,6 +8,7 @@ from discord.errors import HTTPException
 import shlex
 from re import match
 
+
 class RoleRequest(BasePlugin):
     name = "role_request"
     version = "1.1"
@@ -180,7 +181,7 @@ class RoleRequest(BasePlugin):
                 found.append((emote, role))
 
         if found:
-            message = await respond(msg, "**Following roles available through reacting to this message:**\n"+
+            message = await respond(msg, "**Following roles available through reacting to this message:**\n" +
                                     "\n".join(f"> {react}: {r.mention}" for react, r in found))
             parsedFound = tuple((e, r.id) for e, r in found)
             for r, _ in found:
